@@ -13,6 +13,7 @@ html {
   --title-text-color: #212121;
   --accent-color: #2196f3;
   --primary-white-color: #ffffff;
+  --primary-background-color: #c4c4c4;
 }
 
 body {
@@ -123,15 +124,24 @@ img {
   letter-spacing: 0.02em;
   text-decoration: none;
 }
-.contacts .item + .item {
+.contact-item + .contact-item {
   margin-left: 50px;
 }
+
+.contact-icon {
+  margin-right: 10px;
+  fill: var(--primary-text-color);
+}
 .header-email {
+  display: flex;
+  align-items: center;
   padding: 32px 0;
   color: var(--primary-text-color);
   text-decoration: none;
 }
 .header-phone {
+  display: flex;
+  align-items: center;
   padding: 32px 0;
   color: var(--primary-text-color);
   text-decoration: none;
@@ -140,9 +150,17 @@ img {
 .header-email:focus {
   color: var(--accent-color);
 }
+.header-email:hover .contact-icon,
+.header-email:focus .contact-icon {
+  fill: var(--accent-color);
+}
 .header-phone:hover,
 .header-phone:focus {
   color: var(--accent-color);
+}
+.header-phone:hover .contact-icon,
+.header-phone:focus .contact-icon {
+  fill: var(--accent-color);
 }
 /* Hero */
 
@@ -150,6 +168,16 @@ img {
   padding: 200px 0;
   background-color: #2f303a;
   text-align: center;
+  background-color: var(--primary-background-color);
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/headerbackground.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .hero-title {
   margin-top: 0;
@@ -241,6 +269,17 @@ img {
   margin: 15px;
 }
 
+.feature .box {
+  display: flex;
+  width: 270px;
+  height: 120px;
+  background-color: #f5f4fa;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
 .samples {
   display: flex;
   flex-wrap: wrap;
@@ -314,12 +353,66 @@ img {
   font-size: 16px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+  margin-bottom: 16px;
 }
 .employers .item {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
+.employer-socials {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.employersoc-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+}
+.employersoc-link:hover {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+.employersoc-link:hover .employersoc-icon {
+  fill: var(--primary-white-color);
+}
+
+.employersoc-icon {
+  fill: #afb1b8;
+}
+/* Постоянные клиенты */
+.customer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.customer-link {
+  display: flex;
+  width: 170px;
+  height: 92px;
+  background-color: #f5f4fa;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+}
+.customer-icon {
+  fill: #afb1b8;
+}
+.customer-link:hover .customer-icon,
+.customer-link:focus {
+  fill: var(--accent-color);
+}
+.customer-link:hover,
+.customer-link:focus {
+  border-style: solid;
+  border-color: var(--accent-color);
+}
+
 /* footer */
 
 .address {
@@ -367,6 +460,49 @@ img {
   text-decoration: none;
 }
 
+.footer-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 70px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.footer-soc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.footersoc-title {
+  margin: 0;
+  color: var(--primary-white-color);
+  font-size: 16px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+}
+.footersoc-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.footersoc-icon {
+  fill: var(--primary-white-color);
+}
+.footersoc-link:hover {
+  background-color: var(--accent-color);
+}
+
 /* portfolio */
 .project-title {
   margin-top: 0;
@@ -391,7 +527,14 @@ img {
 .button-filter .item + .item {
   margin-left: 8px;
 }
-
+.button-secondary:hover {
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+.button-secondary-current:hover {
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -407,4 +550,8 @@ img {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
+}
+.projects .item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
